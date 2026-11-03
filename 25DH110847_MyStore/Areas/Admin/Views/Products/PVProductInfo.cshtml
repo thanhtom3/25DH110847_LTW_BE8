@@ -1,0 +1,50 @@
+﻿@model _25DH110847_MyStore.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="bg-success">
+    <div class="div-horizontal">
+        <div class="col-md-4">
+            <img src="@Html.DisplayFor(model => model.ProductImage)" />
+        </div>
+        <div class="col-md-8">
+            <dl>
+                <dt>
+                    Tên sản phẩm
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+
+                <dt>
+                    Mô tả
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductDescription)
+                </dd>
+
+                <dt>
+                    Đơn giá
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductPrice)
+                </dd>
+
+                <dt>
+                    Danh mục
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.CategoryName)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>

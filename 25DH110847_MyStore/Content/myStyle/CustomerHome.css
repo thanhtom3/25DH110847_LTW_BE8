@@ -1,11 +1,11 @@
 ﻿/* Style cho phần BANNER */
 .banner {
-    background-image: url('../../images/banner.jpg');
+    background-image: url('../Img/Banner.png');
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 300px;
+    justify-content: center;    
+    min-height: 600px;
 }
 
 .banner-container {
@@ -110,7 +110,7 @@
     margin: 0;
 }
 
-lproduct-item {
+.lproduct-item {
     max-height: 500px;
     border: 1px groove #808080;
     border-radius: 10px;

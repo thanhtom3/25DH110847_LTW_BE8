@@ -50,7 +50,7 @@ namespace _25DH110847_MyStore.Areas.Admin.Controllers
                     break;
                 case "price_asc": products = products.OrderBy(p => p.ProductPrice);
                     break;
-                case "price_desc": products = products.OrderByDescending(p => p.ProductName);
+                case "price_desc": products = products.OrderByDescending(p => p.ProductPrice);
                     break;
                 default:
                     products = products.OrderBy(p => p.ProductName);

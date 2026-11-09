@@ -1,39 +1,138 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - My Store</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link rel="stylesheet"
+          href="@Url.Content("~/Content/bootstrap.css")" />
+
+    <link rel="stylesheet"
+          href="@Url.Content("~/Content/myStyle/Layout.css")" />
+
+    @RenderSection("Styles", required: false)
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+    <header class="customer-header">
+        <div class="navbar">
+            <a href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/Img/Logo.png")"
+                     alt="My Store"
+                     class="logo" />
+            </a>
+        </div>
+
+        <div class="nav-location border-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+                <span class="line-1">Deliver to</span>
+                <span class="line-2">Vietnam</span>
+            </div>
+        </div>
+
+        <div class="nav-search">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+            {
+                <select name="categoryId" class="search-select">
+                    <option value="">All</option>
+                </select>
+
+                <input type="text"
+                       name="searchTerm"
+                       class="search-input"
+                       placeholder="Search Amazon" />
+
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            }
+        </div>
+
+        <div class="nav-tools">
+            <a href="@Url.Action("Login", "Account")"
+               class="nav-item border-box">
+                <span class="line-1">Hello, sign in</span>
+                <span class="line-2">Account &amp; Lists</span>
+            </a>
+
+            <a href="@Url.Action("OrderHistory", "Order")"
+               class="nav-item border-box">
+                <span class="line-1">Returns</span>
+                <span class="line-2">&amp; Orders</span>
+            </a>
+
+            <a href="@Url.Action("Index", "Cart")"
+               class="nav-cart border-box">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+                <span class="cart-text">Cart</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="sub-nav">
+        <a href="@Url.Action("Index", "Home")">
+            <i class="fas fa-bars"></i> All
+        </a>
+        <a href="#">Today's Deals</a>
+        <a href="#">Prime Video</a>
+        <a href="#">Registry</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">Customer Service</a>
+        <a href="#">Sell</a>
+    </nav>
+
+    <main class="main-container">
+        @RenderBody()
+    </main>
+
+    <footer class="customer-footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Amazon Music</h4>
+                <ul>
+                    <li><a href="#">Stream millions of songs</a></li>
+                </ul>
+
+                <h4>Amazon Business</h4>
+                <ul>
+                    <li><a href="#">Everything for your business</a></li>
+                </ul>
+
+                <h4>IMDbPro</h4>
+                <ul>
+                    <li><a href="#">Information for entertainment professionals</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Amazon Ads</h4>
+                <ul>
+                    <li><a href="#">Reach customers wherever they spend their time</a></li>
+                </ul>
+
+                <h4>Amazon Global</h4>
+                <ul>
+                    <li><a href="#">Ship orders internationally</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="footer-bottom">
+            <div class="footer-bottom-links">
+                <a href="#">Conditions of Use</a>
+                <a href="#">Privacy Notice</a>
+                <a href="#">Your Ads Privacy Choices</a>
+            </div>
+
+            <p>&copy; 1996-@DateTime.Now.Year, Amazon.com, Inc. or its affiliates</p>
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

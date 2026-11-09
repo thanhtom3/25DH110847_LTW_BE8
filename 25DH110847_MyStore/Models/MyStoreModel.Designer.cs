@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\thanh\OneDrive\Tài liệu\Html\LiThuyet\BE4\25DH110847_MyStore\25DH110847_MyStore\Models\MyStoreModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\thanh\Source\Repos\test1\25DH110847_MyStore\Models\MyStoreModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

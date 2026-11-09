@@ -15,6 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 8px;
         }
     </style>
 </head>
@@ -46,12 +47,12 @@
         </div>
 
         <div class="form-group order-container">
-            Sắp xếp theo:
+            Sắp xếp theo: 
             @Html.ActionLink("Tên tăng dần", "Index",
                 new { sortOrder = "name_asc", searchTerm = Model.SearchTerm })
             |
             @Html.ActionLink("Tên giảm dần", "Index",
-                new { sortOrder = "name_dec", searchTerm = Model.SearchTerm })
+                new { sortOrder = "name_desc", searchTerm = Model.SearchTerm })
             |
             @Html.ActionLink("Giá tăng dần", "Index",
                 new { sortOrder = "price_asc", searchTerm = Model.SearchTerm })
